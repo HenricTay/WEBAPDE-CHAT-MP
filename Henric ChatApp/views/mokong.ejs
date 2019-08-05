@@ -1,0 +1,34 @@
+<div class = "container">
+        <div class = "row">
+          <div class = "col-12">
+              <h3>Add a New Room </h3><br>
+          </div>
+          <nav class = "col-4" id = "navBar">
+                  <ul class = "navbar-nav">
+                      <li class = "nav-item">
+                          <a class = "nav-link" href="#">Profile</a>
+                      </li>
+                      <li class = "nav-item">
+                          <a class = "nav-link" href="#">Chatrooms</a>
+                      </li>
+                      <li class = "nav-item">
+                          <a class = "nav-link" href="#">Settings</a>
+                      </li>
+                  </ul>
+          </div>
+          <div class = "col-8">
+              <form action="/room" method="POST">
+                <input name="room" type="text" required>
+                <button type="submit">Create Room</button>
+                <br><br>
+                </form>
+                <% Object.keys(rooms).forEach(room => { %>
+                  <form action="/<%= room %>">
+                    <div id ="roomDiv"><%= room %>
+                      <button id ="roomJoin" type="submit" action="/<%= room %>"> Join </button>
+                  </div>
+                </form>
+                <% }) %>
+          </div>
+        </div>
+      </div>

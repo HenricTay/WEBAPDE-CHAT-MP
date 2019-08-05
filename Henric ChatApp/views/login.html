@@ -1,0 +1,40 @@
+<html>
+    <head>
+     <link rel = "stylesheet" type = "text/css" href = "/css/style.css">
+     <script src="https://code.jquery.com/jquery-3.4.1.min.js"> </script>
+    </head>
+    <body>
+        <div class = "loginbox">
+            <img src = "/images/Logo.png" class = "logo">
+            
+            <form id = "userForm">
+                <input type = "text" id = "username" name = "" placeholder="Username">
+                <input type="password" id="password" name="password" placeholder="Password">
+                <input type="submit" id="submit" name="submit" value="Login">
+                <a href = "#">Lost your password?</a><br>
+                <a href = "#">Don't have an account?</a><br>
+            </form>
+        </div>
+        <script>
+                $(function(){
+                var socket = io.connect();
+                var $messageForm = $('#messageForm');
+                var $message = $('#message');
+                var $chat = $('#chat');
+                var $messageArea = $('#messageArea');
+                var $userForm = $('#userForm');
+                var $users = $('#users');
+                var $username = $('#username');
+            
+                $userForm.submit(function(e){
+                    e.preventDefault();
+                    socket.emit('new user', $username.val(), function(data){
+                        if(data){
+                        }
+                    });
+                    $username.val('');
+                });
+            });
+            </script>
+    </body>
+</html>
