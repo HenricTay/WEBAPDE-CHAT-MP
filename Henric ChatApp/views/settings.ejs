@@ -8,6 +8,8 @@
         
         <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
         <script defer src="script.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
     </head>
 
     <title>Settings</title>
@@ -18,8 +20,8 @@
             <img src = "/images/Logo.png" class = "logo">
            <ul class = "sidebar-nav">
              <li><a class = "nav-link" href="link-profile">Profile</a></li>
-             <li><a id ="nav-chatroom-selected" class = "nav-link" href="link-chatrooms">Chatrooms</a></li>
-             <li><a class = "nav-link" href="link-settings">Settings</a></li>
+             <li><a class = "nav-link" href="link-chatrooms">Chatrooms</a></li>
+             <li><a id ="nav-chatroom-selected" class = "nav-link" href="link-settings">Settings</a></li>
            </ul>
          </div>
          <!-- Page Content -->
@@ -27,18 +29,67 @@
             <div id="container-fluid">
                 <div class = "row">
                     <div class = "col-lg-12">
+
+                        <!-- CHANGE DISPLAY NAME -->
+                        <script type="text/javascript">
+                            $(function(){
+                                $(".makeEditable").click(function(){
+                                    $('input:text').removeAttr("readonly");
+                                    $(".makeEditable").toggle(0); 
+                                });
+                
+                                $(".makeUneditable").click(function(){
+                                    $('input:text').attr("readonly", "readonly");
+                                    $(".makeEditable").toggle(0);
+                                });
+                            })
+                        </script>
                         <h4>Change Display Name</h4>
-                        <button>Edit</button>
-                        <input type="text" name="display-name" placeholder="HenricTay88" disabled>
+                        <button value="edit" class="makeUneditable">Save</button>
+                        <button value="edit" class="makeEditable"  style="margin-left: -53px; width: 48px;">Edit</button>
+                        <input type="text" name="display-name" placeholder="HenricTay88" readonly="readonly">
                         <br><br>
 
+                        <!-- CHANGE PASSWORD -->
+                        <script type="text/javascript">
+                            $(function(){
+                                $(".makeEditPass").click(function(){
+                                    $('#passfield').removeAttr("readonly");
+                                    $(".makeEditPass").toggle(0); 
+                                });
+                
+                                $(".makeUneditPass").click(function(){
+                                    $('#passfield').attr("readonly", "readonly");
+                                    $(".makeEditPass").toggle(0);
+                                });
+                            })
+                        </script>
                         <h4>Change Password</h4>
-                        <button>Edit</button>
-                        <input type="password" name="display-name" placeholder="•••••••" disabled>
+                        <button value="save" class="makeUneditPass">Save</button>
+                        <button value="edit"class="makeEditPass" style="margin-left: -53px; width:48px;">Edit</button>
+                        <input id="passfield"type="password" name="display-name" placeholder="•••••••" readonly="readonly">
                         <br><br>
+
+                        <!-- Edit Information -->
+                        <script type="text/javascript">
+                            $(function(){
+                                $(".makeEditInfo").click(function(){
+                                    $('#numberfield').removeAttr("readonly");
+                                    $('#interests').removeAttr("readonly");
+                                    $(".makeEditInfo").toggle(0); 
+                                });
+                
+                                $(".makeUneditInfo").click(function(){
+                                    $('#numberfield').attr("readonly", "readonly");
+                                    $('#interests').attr("readonly", "readonly");
+                                    $(".makeEditInfo").toggle(0);
+                                });
+                            })
+                        </script>
 
                         <h4>Edit Information</h4>
-                        <button>Edit</button>
+                        <button value="save" class="makeUneditInfo">Save</button>
+                        <button value="edit"class="makeEditInfo" style="margin-left: -53px; width:48px;">Edit</button>
                         <br><br>
                             <ul>
                                 <h6>Birthday</h6>
@@ -69,15 +120,12 @@
                             
                             <ul>
                                 <h6>Contact Number</h6>
-                                <input type="text" name="phonenum" placeholder="0917 539 1194" disabled>
+                                <input id="numberfield" type="text" name="phonenum" placeholder="0917 539 1194" readonly="readonly">
                             </ul>
                             <ul>
                                 <h6>Interests</h6>
-                                <input type="text" name="interests" placeholder="Basketball" disabled>
-                            </ul>
-                            <ul>
-                                <br>
-                                <button style="border-style: solid; border-color: black; border-radius:5px;">Save</button>
+                                <input id="interests" type="text" name="interests" placeholder="Basketball, Studying, Orgs" readonly="readonly"
+                                 style="height:100px; width: 300px;">
                             </ul>
                     </div>
                 </div>
