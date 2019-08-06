@@ -42,8 +42,7 @@ app.get('/link-chatrooms', (req, res) => {
 
 app.get('/link-settings', (req, res) => {
   res.render('settings', { 
-    username: req.body.username,
-    password: req.body.password
+    
   })
 })
 
