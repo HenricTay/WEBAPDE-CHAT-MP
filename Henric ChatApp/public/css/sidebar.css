@@ -56,3 +56,11 @@
     border: 2px solid green;
     padding: 5px;
 }
+
+#nav-chatroom-selected{
+    background: #10126b
+}
+
+#nav-profile-selected{
+    background: #10126b
+}

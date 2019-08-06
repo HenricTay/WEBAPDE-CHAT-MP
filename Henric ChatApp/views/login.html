@@ -7,34 +7,13 @@
         <div class = "loginbox">
             <img src = "/images/Logo.png" class = "logo">
             
-            <form id = "userForm">
-                <input type = "text" id = "username" name = "" placeholder="Username">
+            <form id = "userForm" action = "login" method = "POST">
+                <input type = "text" id = "username" name = "username" placeholder="Username">
                 <input type="password" id="password" name="password" placeholder="Password">
                 <input type="submit" id="submit" name="submit" value="Login">
-                <a href = "#">Lost your password?</a><br>
-                <a href = "#">Don't have an account?</a><br>
+    
             </form>
         </div>
-        <script>
-                $(function(){
-                var socket = io.connect();
-                var $messageForm = $('#messageForm');
-                var $message = $('#message');
-                var $chat = $('#chat');
-                var $messageArea = $('#messageArea');
-                var $userForm = $('#userForm');
-                var $users = $('#users');
-                var $username = $('#username');
-            
-                $userForm.submit(function(e){
-                    e.preventDefault();
-                    socket.emit('new user', $username.val(), function(data){
-                        if(data){
-                        }
-                    });
-                    $username.val('');
-                });
-            });
-            </script>
+        
     </body>
 </html>

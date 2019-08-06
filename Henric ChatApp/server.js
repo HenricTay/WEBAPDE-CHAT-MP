@@ -10,13 +10,37 @@ app.use(express.urlencoded({ extended: true }))
 
 const rooms = { }
 
-app.get('/', (req, res) => {
-  res.render('index', { rooms: rooms })
+app.get("/exit", (req, res) => {
+  res.redirect('/link-chatrooms')
 })
 
-app.get("/login", (req, res) =>{
-    res.sendFile(__dirname + '/views/login.html');
+app.get("/", (req, res) =>{
+  res.sendFile(__dirname + '/views/login.html');
 })
+
+app.post('/login', (req, res) => {
+  res.render('profile', { 
+    username: req.body.username,
+    password: req.body.password 
+  })
+})
+
+app.get('/link-profile', (req, res) => {
+  res.render('profile', { 
+    username: req.body.username,
+    password: req.body.password 
+  })
+})
+
+app.get('/link-chatrooms', (req, res) => {
+  res.render('index', {
+    rooms: rooms, 
+    username: req.body.username,
+    password: req.body.password
+  })
+})
+
+
 app.post('/room', (req, res) => {
   if (rooms[req.body.room] != null) {
     return res.redirect('/')
@@ -31,14 +55,13 @@ app.get('/:room', (req, res) => {
   if (rooms[req.params.room] == null) {
     return res.redirect('/')
   }
-  res.render('room', { roomName: req.params.room })
+  res.render('room', { 
+    roomName: req.params.room, 
+    roomUsers : req.params.users
+  })
 })
 
-app.get("/exit", (req, res) => {
-  res.redirect("/index")
-})
-
-server.listen(3005)
+server.listen(3000)
 console.log('Server running...');
 
 io.on('connection', socket => {
