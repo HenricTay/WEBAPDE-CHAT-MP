@@ -11,81 +11,47 @@
   <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
   <script defer src="script.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <style>
-    body {
-      padding: 0;
-      margin: 0;
-    }
-
-    #chatbox{
-      border-style: solid;
-      border-width: 2px;
-      border-color:black;
-      height: 80%;
-      width: 80%;
-    }
-    #message-container {
-      width: 80%;
-      max-width: 1200px;
-    }
-
-    #message-container div {
-      background-color: #CCC;
-      padding: 5px;
-      
-    }
-
-    #message-container div:nth-child(2n) {
-      background-color: #FFF;
-    }
-
-    #send-container {
-      position: fixed;
-      padding-bottom: 30px;
-      bottom: 0;
-      background-color: white;
-      max-width: 1200px;
-      width: 80%;
-      display: flex;
-    }
-
-    #message-input {
-      flex-grow: 1;
-    }
-
-    #roomUsers{
-      border-style: solid;
-      border-width: 1px;
-      border-color:black;
-    }
-  </style>
+  <link rel= "stylesheet" href ="/css/room_style.css" type = "text/css"/>
 </head>
 <body>
-<div> 
-  <div id="roomUsers"> 
-    <h2> Room Users</h2>
-    <div id ="roomUsers">  </div>
+<div class = "wrapper">
+  <!-- Sidebar-->
+  <div id = "sidebar-wrapper">
+     <img src = "/images/Logo.png" class = "logo">
+     <ul class = "sidebar-nav">
+      <li><a class = "nav-link" href="link-profile">Profile</a></li>
+      <li><a id ="nav-chatroom-selected" class = "nav-link" href="link-chatrooms">Chatrooms</a></li>
+      <li><a class = "nav-link" href="link-settings">Settings</a></li>
+      <li><a id ="nav-logout" class = "nav-link" href="link-logout">Logout</a></li>
+    </ul>
   </div>
-
-  <div> 
-    <h3> <%= roomName %> </h3>
-    <form id = "exit-container" action ="/exit">
-      <button type="submit">Exit Room </button>
-      <br><br>
-    </form>
+  <!-- Page Content-->
+  <div id = "page-content-wrapper">
+    <div class = "container-fluid">
+        <div class = "row">
+            <div class = "col-lg-12">
+              <div id="roomUsers"> 
+                <h3> <%= roomName %> </h3>
+                <div id ="roomUsers">  </div>
+              </div>     
+              <div id = "chatroom_name"> 
+                <form id = "exit-container" action ="/exit">
+                  <button type="submit" id = "exit-button">Exit Room </button>
+                </form>
+              </div>
+            <div id= "chatbox-wrapper">
+                <div id="chatbox"> 
+                    <div id="message-container"></div>
+                </div>
+                <form id="send-container">
+                    <input type="text" id="message-input">
+                    <button type="submit" id="send-button">Send</button>
+                </form>
+          </div>
+          </div>
+          </div>
+        </div>
+    </div>
   </div>
-  
-
-  <div id="chatbox"> 
-      <div id="message-container"></div>
-  </div>
-
-  <form id="send-container">
-    <input type="text" id="message-input">
-    <button type="submit" id="send-button">Send</button>
-  </form>
-</div>
-
- 
 </body>
 </html>

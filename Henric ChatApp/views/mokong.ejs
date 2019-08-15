@@ -32,3 +32,33 @@
           </div>
         </div>
       </div>
+
+
+
+
+      <!-- ROOM EJS ORIGINAL BODY-->
+
+      <div> 
+        <div id="roomUsers"> 
+          <h2>Babble</h2>
+          <div id ="roomUsers">  </div>
+        </div>
+      
+        <div> 
+          <h3> <%= roomName %> </h3>
+          <form id = "exit-container" action ="/exit">
+            <button type="submit">Exit Room </button>
+            <br><br>
+          </form>
+        </div>
+        
+      
+        <div id="chatbox"> 
+            <div id="message-container"></div>
+        </div>
+      
+        <form id="send-container">
+          <input type="text" id="message-input">
+          <button type="submit" id="send-button">Send</button>
+        </form>
+      </div>

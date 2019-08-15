@@ -18,6 +18,11 @@ app.get("/", (req, res) =>{
   res.sendFile(__dirname + '/views/login.html');
 })
 
+app.get('/link-logout', (req,res) =>{
+  res.sendFile(__dirname + '/views/login.html');
+
+})
+
 app.post('/login', (req, res) => {
   res.render('profile', { 
     username: req.body.username,
@@ -40,6 +45,11 @@ app.get('/link-chatrooms', (req, res) => {
   })
 })
 
+app.get('/link-settings', (req,res) =>{
+  res.render('settings',{
+
+  })
+})
 
 app.post('/room', (req, res) => {
   if (rooms[req.body.room] != null) {
@@ -60,6 +70,7 @@ app.get('/:room', (req, res) => {
     roomUsers : req.params.users
   })
 })
+
 
 server.listen(3000)
 console.log('Server running...');

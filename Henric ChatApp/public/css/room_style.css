@@ -1,0 +1,119 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+#sidebar-wrapper{
+    z-index: 1;
+    position: absolute;
+    width:10%;
+    height: 100%;
+    overflow-y: hidden;
+    background: #2c3e50;
+    opacity: 0.9;
+}
+.sidebar-nav{
+    margin-top:90px;
+}
+.logo{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 10px;
+    left:40px;
+}
+/*Main*/
+
+#page-content-wrapper{
+    width: 90%;
+    position: absolute;
+    right:0px;
+    padding:15px;
+}
+
+
+.sidebar-nav{
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li{
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a{
+    display:block;
+    text-decoration: none;
+    color:#ddd;
+}
+
+.sidebar-nav li a:hover{
+    background: #16a450
+}
+
+#chatroomList{
+    border: 2px solid green;
+    padding: 10px;
+}
+
+#roomDiv{
+    border: 2px solid green;
+    padding: 5px;
+}
+
+#nav-chatroom-selected{
+    background: #10126b
+}
+
+#nav-profile-selected{
+    background: #10126b
+}
+
+#chatbox{
+    border-style: solid;
+    border-width: 2px;
+    border-color:black;
+    height: 80%;
+    width: 80%;
+}
+#message-container {
+    width: 100%;
+    
+}
+
+#message-container div {
+    background-color: #CCC;
+    padding: 5px;
+    
+}
+
+#message-container div:nth-child(2n) {
+    background-color: #FFF;
+}
+
+#send-container {
+    position: fixed;
+    padding-bottom: 30px;
+    bottom: 0;
+    background-color: white;
+    max-width: 1200px;
+    width: 80%;
+    display: flex;
+}
+
+#message-input {
+    flex-grow: 1;
+}
+#chatroom_name{
+    display:inline-flex;
+    flex:row;
+}
+
+#exit-button{
+    margin-bottom: 10px;
+}
+#roomUsers{
+    margin-bottom: 30px;
+}
+
