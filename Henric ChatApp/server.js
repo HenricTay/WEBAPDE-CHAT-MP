@@ -45,11 +45,20 @@ app.get('/link-chatrooms', (req, res) => {
   })
 })
 
+<<<<<<< HEAD
 app.get('/link-settings', (req,res) =>{
   res.render('settings',{
 
   })
 })
+=======
+app.get('/link-settings', (req, res) => {
+  res.render('settings', { 
+    
+  })
+})
+
+>>>>>>> 9a5b470dbe6e34fdd25090fe18632cffd9b20e58
 
 app.post('/room', (req, res) => {
   if (rooms[req.body.room] != null) {
