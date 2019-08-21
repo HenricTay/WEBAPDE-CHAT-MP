@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lobby</title>
+
+    <style>
+
+        @font-face{
+            font-family: Overpass;
+            src: url("overpass-bold.otf")
+        }
+    /********** Chatroom **********/
+    body{
+        background: #38598B;
+    }
+
+    /********** NAVBAR ************/
+    .LobbyText{
+        position: absolute;
+        width: 179px;
+        height: 61px;
+        left: 12.5%;
+        top: 29px;
+
+        font-family: Overpass;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 22px;
+        line-height: 61px;
+        letter-spacing: 0.01em;
+        text-decoration-line: underline;
+
+        color: #FFFFFF;
+    }
+
+    .LobbyText{cursor: pointer;}
+
+    .Logo{
+        position: absolute;
+        height: 120px;
+        left: 25px;
+        top: -3px;
+    }
+
+    /********** LobbyFrame **********/
+    .LobbyFrame{
+        position: absolute;
+        width: 100%;
+        height: 750px;
+        left: 0px;
+        top: 80px;
+        background: #A2A8D3;   
+    }
+
+    .mainBox{
+        position: absolute;
+        width: 50%;
+        height: 55%;
+        left: 25%;
+        top: 15%;
+
+        background: #F1F1F1;
+        border: 2px solid #000000;
+        box-sizing: border-box;
+        border-radius: 15px;
+    }
+
+    /********** "CHATROOMS" **********/
+    .CHATROOMTEXT{
+        position: absolute;
+        width: 340px;
+        height: 50px;
+        left: 36.5%;
+        top: 3.5%;
+
+        font-family: Overpass;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 60px;
+        line-height: 61px;
+        /* letter-spacing: 0.01em; */
+
+        color: #FFFFFF;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="Chatroom">
+        <!-- NavBar -->
+        <div class="LobbyText"> &lt;- Back to Lobby</div>
+        <img class="Logo" src="assets/babble.png">
+        
+        <div class="LobbyFrame">
+            <div class="CHATROOMTEXT">CHATROOMS</div>
+            <div class="mainBox"></div>
+        </div>
+        
+    </div>
+</body>
+</html>

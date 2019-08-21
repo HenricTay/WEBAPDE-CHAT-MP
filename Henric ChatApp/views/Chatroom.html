@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chatroom</title>
+
+    <style>
+
+        @font-face{
+            font-family: Overpass;
+            src: url("overpass-bold.otf")
+        }
+    /********** Chatroom **********/
+    body{
+        background: #38598B;
+    }
+
+    /********** NAVBAR ************/
+    .LobbyText{
+        position: absolute;
+        width: 179px;
+        height: 61px;
+        left: 12.5%;
+        top: 29px;
+
+        font-family: Overpass;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 22px;
+        line-height: 61px;
+        letter-spacing: 0.01em;
+        text-decoration-line: underline;
+
+        color: #FFFFFF;
+    }
+
+    .LobbyText{cursor: pointer;}
+
+    .Logo{
+        position: absolute;
+        height: 120px;
+        left: 25px;
+        top: -3px;
+    }
+
+    /********** LobbyFrame **********/
+    .LobbyFrame{
+        position: absolute;
+        width: 100%;
+        height: 750px;
+        left: 0px;
+        top: 80px;
+        background: #A2A8D3;   
+    }
+
+    /********** Online Users **********/
+    .UsersText{
+        /* Users */
+        position: absolute;
+        width: 122px;
+        height: 52px;
+        left: 13%;
+        top: 34px;
+        font-family: Overpass;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 30px;
+        line-height: 52px;
+        /* identical to box height */
+        display: flex;
+        align-items: center;
+        color: #FFFFFF;
+    }
+    .Line{
+        position: absolute;
+        width: 216px;
+        height: 0px;
+        left: 12%;
+        top: 83px;
+
+        border: 1px solid #000000;
+    }
+    .UsersHeader{
+        position: absolute;
+        width: 216px;
+        height: 51px;
+        left: 12.15%;
+        top: 32px;
+
+        background: #38598B;
+        border-radius: 18px;
+    }
+    .Line2{
+        position: absolute;
+        width: 216px;
+        height: 23px;
+        left: 12.15%;
+        top: 61px;
+
+        background: #38598B;
+    }
+    .TallBox{
+        position: absolute;
+        width: 220px;
+        height: 65%;
+        left: 12%;
+        top: 30px;
+
+        background: #F1F1F1;
+        border: 2px solid #000000;
+        box-sizing: border-box;
+        border-radius: 20px;
+    }
+
+    /********** ChatBox **********/
+    .TextBox{
+        position: absolute;
+        width: 48%;
+        height: 30px;
+        left: 32%;
+        top: 62.3%;
+
+        background: #F1F1F1;
+        border: 2px solid #000000;
+        box-sizing: border-box;
+        border-radius: 37.5px;
+    }
+
+    .rounded{
+        position: absolute;
+        width: 59.64%;
+        height: 60px;
+        left: 30.2%;
+        top: 60.75%;
+
+        background: #38598B;
+        border-radius: 29px;
+    }
+
+    .thin{
+        position: absolute;
+        width: 1126px;
+        height: 28px;
+        left: 422px;
+        top: 1049px;
+
+        background: #38598B;
+    }
+
+    .long{
+        position: absolute;
+        width: 59.8%;
+        height: 32.59px;
+        left: 30.1%;
+        top: 60%;
+
+        background: #38598B;
+        border: 1px solid #000000;
+        box-sizing: border-box;
+    }
+
+    .mainBox{
+        position: absolute;
+        width: 60%;
+        height: 65%;
+        left: 30%;
+        top: 30px;
+
+        background: #F1F1F1;
+        border: 2px solid #000000;
+        box-sizing: border-box;
+        border-radius: 31px;
+    }
+
+    .plane{
+        position: absolute;
+        width: 3%;
+        left: 83%;
+        top: 62%;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="Chatroom">
+        <!-- NavBar -->
+        <div class="LobbyText"> &lt;- Back to Lobby</div>
+        <img class="Logo" src="assets/babble.png">
+        <div class="LobbyFrame">
+            <!-- Online Users -->
+            <div>
+                <div class="TallBox"></div>
+                <div class="Line2"></div>
+                <div class="UsersHeader"></div>
+                <div class="Line"></div>
+                <div class="UsersText">Users</div>
+            </div>
+            
+
+            <!-- Chatbox -->
+            <div class="mainBox"></div>
+            <div class="long"></div>
+            <div class="rounded"></div>
+            <div class="thin"></div>
+            <div class="TextBox"></div>
+            <img class="plane" src="assets/paper plane.png">
+        </div>
+    </div>
+</body>
+</html>
