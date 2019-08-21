@@ -3,11 +3,17 @@ const messageContainer = document.getElementById('message-container')
 const roomContainer = document.getElementById('room-container')
 const messageForm = document.getElementById('send-container')
 const messageInput = document.getElementById('message-input')
+const $users = $('#users'); 
+
+
 
 if (messageForm != null) {
   const name = prompt('What is your name?')
   appendMessage('You joined')
   socket.emit('new-user', roomName, name)
+
+  var para = document.createElement('p');
+  var element = document.getElementById("chatroom_name");
 
   messageForm.addEventListener('submit', e => {
     e.preventDefault()
@@ -26,6 +32,11 @@ socket.on('room-created', room => {
   roomLink.innerText = 'join'
   roomContainer.append(roomElement)
   roomContainer.append(roomLink)
+})
+
+socket.on('load old msgs', function(docs){
+  for(var i = 0; i < docs.length; i++)
+    appendMessage(docs[i].username +":"+ docs[i].msg);
 })
 
 socket.on('chat-message', data => {

@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
+const mongoose = require('mongoose')
 
 app.set('views', './views')
 app.set('view engine', 'ejs')
@@ -9,7 +10,19 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 
 const rooms = { }
+const room_usernames = []
 
+mongoose.connect("mongodb://localhost:27017/chat", 
+{
+  useNewUrlParser:true
+})
+
+var chatSchema = mongoose.Schema({
+  username: String,
+  msg: String,
+})
+
+var Chat = mongoose.model('Message', chatSchema);
 app.get("/exit", (req, res) => {
   res.redirect('/link-chatrooms')
 })
@@ -45,20 +58,11 @@ app.get('/link-chatrooms', (req, res) => {
   })
 })
 
-<<<<<<< HEAD
 app.get('/link-settings', (req,res) =>{
   res.render('settings',{
 
   })
 })
-=======
-app.get('/link-settings', (req, res) => {
-  res.render('settings', { 
-    
-  })
-})
-
->>>>>>> 9a5b470dbe6e34fdd25090fe18632cffd9b20e58
 
 app.post('/room', (req, res) => {
   if (rooms[req.body.room] != null) {
@@ -85,13 +89,25 @@ server.listen(3000)
 console.log('Server running...');
 
 io.on('connection', socket => {
-  socket.on('new-user', (room, name) => {
+
+   
+  socket.on('new-user', (room, name, room_usernames) => {
     socket.join(room)
     rooms[room].users[socket.id] = name
-    socket.to(room).broadcast.emit('user-connected', name)
+    Chat.find({}, function(err, docs){
+      console.log("Send old messages")
+      socket.emit('load old msgs', docs);
+  })
+    socket.to(room).broadcast.emit('user-connected', room_usernames)
   })
   socket.on('send-chat-message', (room, message) => {
-    socket.to(room).broadcast.emit('chat-message', { message: message, name: rooms[room].users[socket.id] })
+    //socket.to(room).broadcast.emit('chat-message', { message: message, name: rooms[room].users[socket.id] })
+    var newMsg = new Chat({ msg: message, username: rooms[room].users[socket.id] })
+    newMsg.save(function(err){
+      if(err)
+        throw err;
+        socket.to(room).broadcast.emit('chat-message', { message: message, name: rooms[room].users[socket.id] })
+    })
   })
   socket.on('disconnect', () => {
     getUserRooms(socket).forEach(room => {
