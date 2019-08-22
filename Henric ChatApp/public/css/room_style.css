@@ -1,56 +1,32 @@
+@font-face{
+    font-family: Overpass;
+    src: url("overpass-bold.otf")
+}
+
 body{
     padding: 0;
     margin: 0;
+    background: #38598B;
 }
 
-#sidebar-wrapper{
-    z-index: 1;
-    position: absolute;
-    width:10%;
-    height: 100%;
-    overflow-y: hidden;
-    background: #2c3e50;
-    opacity: 0.9;
-}
-.sidebar-nav{
-    margin-top:90px;
-}
 .logo{
-    width: 100px;
-    height: 100px;
     position: absolute;
-    top: 10px;
-    left:40px;
+    height: 120px;
+    left: 25px;
+    top: -3px;
 }
+
 /*Main*/
 
 #page-content-wrapper{
-    width: 90%;
     position: absolute;
-    right:0px;
-    padding:15px;
+    width: 100%;
+    height: 750px;
+    left: 0px;
+    top: 80px;
+    background: #A2A8D3;   
 }
 
-
-.sidebar-nav{
-    padding: 0;
-    list-style: none;
-}
-
-.sidebar-nav li{
-    text-indent: 20px;
-    line-height: 40px;
-}
-
-.sidebar-nav li a{
-    display:block;
-    text-decoration: none;
-    color:#ddd;
-}
-
-.sidebar-nav li a:hover{
-    background: #16a450
-}
 
 #chatroomList{
     border: 2px solid green;
@@ -71,9 +47,6 @@ body{
 }
 
 #chatbox{
-    border-style: solid;
-    border-width: 2px;
-    border-color:black;
     height: 80%;
     width: 80%;
 }
@@ -93,27 +66,197 @@ body{
 }
 
 #send-container {
-    position: fixed;
-    padding-bottom: 30px;
-    bottom: 0;
-    background-color: white;
-    max-width: 1200px;
-    width: 80%;
-    display: flex;
+    position: absolute;
+    width: 59.8%;
+    height: 32.59px;
+    left: 30.1%;
+    top: 60%;
+    background: #38598B;
+    border: 1px solid #000000;
+    box-sizing: border-box;
 }
 
-#message-input {
-    flex-grow: 1;
-}
+
 #chatroom_name{
     display:inline-flex;
     flex:row;
 }
 
-#exit-button{
-    margin-bottom: 10px;
-}
 #roomUsers{
-    margin-bottom: 30px;
+    position:absolute;
+    margin-top: 25px;
+    margin-left: 200px;
+
+}
+span{
+    font-size:40px;
+    font-family:Overpass;
+}
+#exit-button{
+    margin-top: 35px;
+    margin-left: 350px;
+    position:absolute;
+
 }
 
+.col-lg-12{
+    margin-top: 20px;
+}
+
+/*** List of Users ****/
+.UsersText{
+    /* Users */
+    position: absolute;
+    width: 122px;
+    height: 52px;
+    left: 13%;
+    top: 34px;
+    font-family: Overpass;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 52px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+}
+.Line{
+    position: absolute;
+    width: 216px;
+    height: 0px;
+    left: 12%;
+    top: 83px;
+
+    border: 1px solid #000000;
+}
+.UsersHeader{
+    position: absolute;
+    width: 216px;
+    height: 51px;
+    left: 12.15%;
+    top: 32px;
+
+    background: #38598B;
+    border-radius: 18px;
+}
+.Line2{
+    position: absolute;
+    width: 216px;
+    height: 23px;
+    left: 12.15%;
+    top: 61px;
+
+    background: #38598B;
+}
+.TallBox{
+    position: absolute;
+    width: 220px;
+    height: 65%;
+    left: 12%;
+    top: 30px;
+
+    background: #F1F1F1;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+/********** ChatBox **********/
+.TextBox{
+    position: absolute;
+    width: 48%;
+    height: 30px;
+    left: 32%;
+    top: 62.3%;
+
+    padding-left: 10px;
+    background: #F1F1F1;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    border-radius: 37.5px;
+}
+
+#message-input {
+    position: absolute;
+    width: 48%;
+    height: 30px;
+    left: 32%;
+    top: 62.3%;
+
+    padding-left: 10px;
+    background: #F1F1F1;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    border-radius: 37.5px;
+}
+
+.mainBox{
+    position: absolute;
+    width: 60%;
+    height: 65%;
+    left: 30%;
+    top: 30px;
+
+    background: #F1F1F1;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    border-radius: 31px;
+}
+.rounded{
+    position: absolute;
+    width: 59.64%;
+    height: 60px;
+    left: 30.2%;
+    top: 60.75%;
+
+    background: #38598B;
+    border-radius: 29px;
+}
+
+.thin{
+    position: absolute;
+    width: 1126px;
+    height: 28px;
+    left: 422px;
+    top: 1049px;
+
+    background: #38598B;
+}
+
+#send-container {
+    position: absolute;
+    width: 59.8%;
+    height: 32.59px;
+    left: 30.1%;
+    top: 60%;
+    background: #38598B;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+}
+
+.plane{
+    position: absolute;
+    width: 3%;
+    left: 83%;
+    top: 62%;
+}
+
+.row{
+    position: absolute;
+        width: 100%;
+        height: 750px;
+        left: 0px;
+        top: 80px;
+        background: #A2A8D3; 
+}
+
+
+.textDisplay{
+    margin-left:3px;
+        margin-top:20px;
+        width: 98.5%;
+        height: 80%; 
+
+        overflow: scroll;
+}

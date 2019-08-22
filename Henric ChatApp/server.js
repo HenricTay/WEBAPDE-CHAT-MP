@@ -93,6 +93,7 @@ app.get('/link-chatrooms', (req, res) => {
     })
     res.render('index', {
       rooms: rooms, 
+      
     })
   
     var newRoom = new CRooms({chatRoom:rooms})
@@ -156,7 +157,7 @@ io.on('connection', socket => {
     rooms[room].users[socket.id] = name
     Chat.find({}, function(err, docs){
       console.log("Send old messages")
-      socket.emit('load old msgs', docs);
+      //socket.emit('load old msgs', docs);
   })
     socket.to(room).broadcast.emit('user-connected', name)
   })

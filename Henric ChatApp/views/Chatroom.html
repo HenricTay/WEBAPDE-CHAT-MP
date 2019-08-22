@@ -7,7 +7,9 @@
     <title>Chatroom</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    
+    <script>
+        const roomName = "<%= roomName %>"
+    </script>
     <style>
 
         @font-face{
@@ -268,6 +270,9 @@
     <div class="Chatroom">
         <!-- NavBar -->
         <div class="LobbyText"> &lt;- Back to Lobby</div>
+        <div class="ChatRoomName">
+            <h3> <%= roomName %> </h3>
+        </div>
         <img class="Logo" src="assets/babble.png">
         <div class="LobbyFrame">
             <!-- Online Users -->
