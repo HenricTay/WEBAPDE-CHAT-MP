@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Chatroom</title>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
     <style>
 
         @font-face{
@@ -122,6 +124,7 @@
         left: 32%;
         top: 62.3%;
 
+        padding-left: 10px;
         background: #F1F1F1;
         border: 2px solid #000000;
         box-sizing: border-box;
@@ -174,6 +177,59 @@
         border-radius: 31px;
     }
 
+    .textDisplay{
+        margin-left:3px;
+        margin-top:20px;
+        width: 98.5%;
+        height: 80%; 
+
+        overflow: scroll;
+    }
+
+    .sender{
+        width: 150px;
+        background: #ddc4c2;
+        
+        margin-top:5px;
+        margin-left:3px;
+        padding-top: 5px;
+        
+        border-radius:40px;
+        text-align:center;
+        font-family: Overpass;
+        font-size: 12pt;
+        color: #38598B;
+    }
+
+    #name{
+        width: 150px;
+        background: #ddc4c2;
+        
+        margin-top:5px;
+        margin-left:3px;
+        padding-top: 5px;
+        
+        border-radius:40px;
+        text-align:center;
+        font-family: Overpass;
+        font-size: 12pt;
+        color: #38598B;
+    }
+
+    .messageText{
+        margin-top: 3px;
+        margin-left: 20px;
+        font-family:Overpass;
+        font-size: 10pt; 
+    }
+
+    p{
+        margin-top: 3px;
+        margin-left: 20px;
+        font-family:Overpass;
+        font-size: 10pt; 
+    }
+
     .plane{
         position: absolute;
         width: 3%;
@@ -181,6 +237,31 @@
         top: 62%;
     }
     </style>
+
+     <!-- Chatbox -->
+     <script>
+        $(document).ready(function(){
+            $("#send").click(function(){
+
+                $("#messageText").after("<p id=newMessage>" + document.getElementById("idTextInput").value + "</p>"); //Appends
+                document.getElementById("messageText").setAttribute("id", "prevMessage"); //Assigns new ID to the Parent
+                document.getElementById("newMessage").setAttribute("id","messageText");
+                document.getElementById("idTextInput").value=''; //Clears the TextField
+                autoscroll();
+            });
+
+            $('#idTextInput').keypress(function(e){
+                if(e.which == 13){//Enter key pressed
+                    $('#send').click();//Trigger send button click event
+                }
+            });
+
+            function autoScroll(){
+                let height = $("#textDisplay")[0].scrollHeight;
+                $("#textDisplay").animate({scrollTop: height}, 400)
+            }
+        });
+    </script>
 </head>
 
 <body>
@@ -197,15 +278,20 @@
                 <div class="Line"></div>
                 <div class="UsersText">Users</div>
             </div>
-            
 
-            <!-- Chatbox -->
-            <div class="mainBox"></div>
+            <div class="mainBox">
+                <div class="textDisplay">
+                    <div class="message">
+                        <div id="name">Henric Tay</div>
+                        <p id="messageText">Eyo what up diggity dogs? How are y'all doing?</p>
+                    </div>
+                </div>
+            </div>
             <div class="long"></div>
             <div class="rounded"></div>
             <div class="thin"></div>
-            <div class="TextBox"></div>
-            <img class="plane" src="assets/paper plane.png">
+            <input type="text" class="TextBox" id="idTextInput">
+            <input type="image" id="send" class="plane" src="assets/paper plane.png">
         </div>
     </div>
 </body>
