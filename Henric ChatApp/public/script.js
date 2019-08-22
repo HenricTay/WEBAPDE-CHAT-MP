@@ -1,3 +1,4 @@
+
 const socket = io('http://localhost:3000')
 const messageContainer = document.getElementById('message-container')
 const roomContainer = document.getElementById('room-container')
@@ -6,8 +7,8 @@ const messageInput = document.getElementById('message-input')
 const $users = $('#users'); 
 
 
-
 if (messageForm != null) {
+  console.log("Tangina2")
   const name = prompt('What is your name?')
   appendMessage('You joined')
   socket.emit('new-user', roomName, name)
@@ -24,7 +25,10 @@ if (messageForm != null) {
   })
 }
 
+
+
 socket.on('room-created', room => {
+  console.log("Tangina")
   const roomElement = document.createElement('div')
   roomElement.innerText = room
   const roomLink = document.createElement('button')
@@ -32,6 +36,7 @@ socket.on('room-created', room => {
   roomLink.innerText = 'join'
   roomContainer.append(roomElement)
   roomContainer.append(roomLink)
+
 })
 
 socket.on('load old msgs', function(docs){
