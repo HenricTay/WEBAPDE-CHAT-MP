@@ -40,7 +40,7 @@
 
     .Logo{
         position: absolute;
-        height: 120px;
+        height: 140px;
         left: 25px;
         top: -3px;
     }
@@ -51,7 +51,7 @@
         width: 100%;
         height: 750px;
         left: 0px;
-        top: 80px;
+        top: 90px;
         background: #A2A8D3;   
     }
 
@@ -101,13 +101,44 @@
         font-family: Overpass;
         cursor: pointer;
     }
+
+    #roomJoin{
+        font-family: Overpass;
+        border-radius: 5px;
+        border-color:#706b6b;
+    }
+    
+    #createRoom{
+        font-family: Overpass;
+        border-radius: 5px;
+        border-color:#837b7b
+    }
+
+    #roomDiv{
+        font-family: Overpass;
+        margin-left: 10px;
+        margin-bottom: 15px;
+    }
+
+    #addRoom{
+        font-family: Overpass;
+        margin-left: 10px;
+        font-size: 20px;
+        margin-bottom:2px;
+    }
+
+    #inputName{
+        margin-left: 10px;
+        border-radius: 8px;
+        border-color:#645f5f
+    }
     </style>
 </head>
 
 <body onload="document.getElementById('id01').style.display='block'">
     <div class="Chatroom">
         <!-- NavBar -->
-        <img class="Logo" src="assets/babble.png">
+        <img class="Logo" src="/images/babble.png">
         
         <!-- Lobby Frame -->
         <div class="LobbyFrame">
@@ -118,10 +149,10 @@
                     <div class = "container-fluid">
                         <div class = "row">
                             <div class = "col-lg-12">
-                                <p> Add a new room</p>
+                                <p id ="addRoom"> Add a new room</p>
                                 <form action="/room" method="POST">
-                                    <input name="room" type="text" required>
-                                    <button type="submit">Create Room</button>
+                                    <input name="room" id="inputName" type="text" required>
+                                    <button type="submit" id="createRoom">Create Room</button>
                                     <br><br>
                                 </form>
                                 <div id = "chatroomList">

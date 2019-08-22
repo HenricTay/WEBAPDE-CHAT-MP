@@ -53,31 +53,17 @@ CRooms.find({}, function(err,docs){
   }
 })
 */
-app.get("/exit", (req, res) => {
-  res.redirect('/link-chatrooms')
-})
 
 app.get("/", (req, res) =>{
-  res.sendFile(__dirname + '/views/login.html');
-})
-
-app.get('/link-logout', (req,res) =>{
-  res.sendFile(__dirname + '/views/login.html');
-
-})
-
-
-app.post('/login', (req, res) => {
-  res.render('profile', { 
-    username: req.body.username,
-    password: req.body.password 
+  res.render("landingPage.ejs", {
+    rooms: rooms, 
   })
+
 })
 
-app.get('/link-profile', (req, res) => {
-  res.render('profile', { 
-    username: req.body.username,
-    password: req.body.password 
+app.get("/exit", (req, res) => {
+  res.render('Lobby.ejs', {
+    rooms: rooms,
   })
 })
 
@@ -105,11 +91,6 @@ app.get('/link-chatrooms', (req, res) => {
     }) 
 })
 
-app.get('/link-settings', (req,res) =>{
-  res.render('settings',{
-
-  })
-})
 
 app.post('/room', (req, res) => {
 
