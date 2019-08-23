@@ -7,7 +7,29 @@
   <title>Chat App</title>
   <script>
     const roomName = "<%= roomName %>"
-    const room_usernames = [];
+    
+        $(document).ready(function(){
+            $("#send").click(function(){
+
+                $("#messageText").after("<p id=newMessage>" + document.getElementById("idTextInput").value + "</p>"); //Appends
+                document.getElementById("messageText").setAttribute("id", "prevMessage"); //Assigns new ID to the Parent
+                document.getElementById("newMessage").setAttribute("id","messageText");
+                document.getElementById("idTextInput").value=''; //Clears the TextField
+                autoscroll();
+            });
+
+            $('#idTextInput').keypress(function(e){
+                if(e.which == 13){//Enter key pressed
+                    $('#send').click();//Trigger send button click event
+                }
+            });
+
+            function autoScroll(){
+                let height = $("#message-container")[0].scrollHeight;
+                $("#message-container").animate({scrollTop: height}, 400)
+            }
+        });
+    
   </script>
   <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
   <script defer src= "https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -48,13 +70,13 @@
                 <div id= "chatbox-wrapper">
                   <div id="chatbox"> 
                     <div id="message-container">
-                        <div id="name"></div>
                     </div>
                   </div> 
               </div>
             </div>
           </div>
         </div>
+          <div class ="long"></div>
           <div class="rounded"></div>
           <div class="thin"></div>
           <form id="send-container">

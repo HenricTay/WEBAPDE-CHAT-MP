@@ -8,7 +8,7 @@ const $users = $('#users');
 
 
 if (messageForm != null) {
-  console.log("Tangina2")
+
   const name = prompt('What is your name?')
   appendMessage('You joined')
   socket.emit('new-user', roomName, name)
@@ -25,10 +25,13 @@ if (messageForm != null) {
   })
 }
 
-
+function autoScroll(){
+  let height = $("#message-container")[0].scrollHeight;
+  $("#message-container").animate({scrollTop: height}, 400)
+}
 
 socket.on('room-created', room => {
-  console.log("Tangina")
+
   const roomElement = document.createElement('div')
   roomElement.innerText = room
   const roomLink = document.createElement('button')
@@ -40,12 +43,13 @@ socket.on('room-created', room => {
 })
 
 socket.on('load old msgs', function(docs){
-  for(var i = 0; i < docs.length; i++)
+  for(var i = docs.length-1; i>=0; i--)
     appendMessage(docs[i].username +":"+ docs[i].msg);
 })
 
 socket.on('chat-message', data => {
   appendMessage(`${data.name}: ${data.message}`)
+  autoScroll();
 })
 
 socket.on('user-connected', name => {

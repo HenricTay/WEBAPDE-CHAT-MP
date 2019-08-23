@@ -51,29 +51,45 @@ body{
     width: 80%;
 }
 #message-container {
-    width: 100%;
+    display:flex;
+    flex-direction:column;
     
 }
 
 #message-container div {
-    background-color: #CCC;
-    padding: 5px;
-    
+    background-color:#A2A8D3;
+	-moz-clip-path:polygon(0% 0%, 100% 0%, 100% 75%, 20px 75%, 
+	10px 100%, 10px 75%, 0% 75%);
+	clip-path:polygon(0% 0%, 100% 0%, 100% 75%, 20px 75%, 
+	10px 100%, 10px 75%, 0% 75%);
+	-webkit-clip-path:polygon(0% 0%, 100% 0%, 100% 75%, 20px 75%, 
+	10px 100%, 10px 75%, 0% 75%);
+	width: 100%;
+    margin:10px;
+	padding:10px;
+	padding-bottom: 20px;
+	display:inline-block;
+    overflow-y:auto;
+    font-family: Overpass;
 }
 
 #message-container div:nth-child(2n) {
-    background-color: #FFF;
-}
-
-#send-container {
-    position: absolute;
-    width: 59.8%;
-    height: 32.59px;
-    left: 30.1%;
-    top: 60%;
-    background: #38598B;
-    border: 1px solid #000000;
-    box-sizing: border-box;
+    background-color:#38598B;
+    -moz-clip-path:polygon(0% 0%, 100% 0%, 100% 75%, 20px 75%, 
+	10px 100%, 10px 75%, 0% 75%);
+	clip-path:polygon(0% 0%, 100% 0%, 100% 75%, 20px 75%, 
+	10px 100%, 10px 75%, 0% 75%);
+	-webkit-clip-path:polygon(0% 0%, 100% 0%, 100% 75%, 20px 75%, 
+	10px 100%, 10px 75%, 0% 75%);
+	width: 100%;
+    margin:10px;
+	padding:10px;
+	padding-bottom: 20px;
+	display:inline-block;
+    overflow-y:auto;
+    font-family: Overpass;
+    color: white;
+    flex-grow: inherit;
 }
 
 
@@ -91,6 +107,8 @@ body{
 span{
     font-size:40px;
     font-family:Overpass;
+    font-style: normal;
+    font-weight: bold;
 }
 #exit-button{
     margin-top: 35px;
@@ -205,9 +223,9 @@ span{
 }
 .rounded{
     position: absolute;
-    width: 59.64%;
+    width: 59.8%;
     height: 60px;
-    left: 30.2%;
+    left: 30.1%;
     top: 60.75%;
 
     background: #38598B;
@@ -224,14 +242,15 @@ span{
     background: #38598B;
 }
 
-#send-container {
+.long {
     position: absolute;
     width: 59.8%;
     height: 32.59px;
     left: 30.1%;
     top: 60%;
+
     background: #38598B;
-    border: 1px solid #000000;
+    border: 5px solid #38598B;
     box-sizing: border-box;
 }
 
@@ -240,6 +259,9 @@ span{
     width: 3%;
     left: 83%;
     top: 62%;
+    transition-duration:1s;
+	transition-property:all;
+	transition-timing-function: ease;
 }
 
 .row{
@@ -253,10 +275,37 @@ span{
 
 
 .textDisplay{
+    display:flex;
+    flex-direction:column;
     margin-left:3px;
-        margin-top:20px;
-        width: 98.5%;
-        height: 80%; 
+    margin-top:20px;
+    width: 98.5%;
+    height: 80%; 
 
         overflow: scroll;
+}
+
+#exit-button{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    font-family: Overpass;
+    outline: none;
+    color: #2b4162;
+    background-color: #A2A8D3;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #2b4162;
+    margin-top: -7px;
+    left: 73%;
+    position:absolute;
+
+}
+
+#exit-button:active {
+  background-color: #38598B;
+  box-shadow: 0 5px #38598B;
+  transform: translateY(4px);
 }

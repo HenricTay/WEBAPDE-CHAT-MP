@@ -22,6 +22,7 @@ mongoose.connect("mongodb://localhost:27017/chat",
 var chatSchema = mongoose.Schema({
   username: String,
   msg: String,
+  created: {type: Date, default: Date.now}
 })
 
 var chatroomSchema = mongoose.Schema(
@@ -136,12 +137,14 @@ io.on('connection', socket => {
   socket.on('new-user', (room, name) => {
     socket.join(room)
     rooms[room].users[socket.id] = name
-    Chat.find({}, function(err, docs){
-      console.log("Send old messages")
-      //socket.emit('load old msgs', docs);
-  })
     socket.to(room).broadcast.emit('user-connected', name)
+    var query = Chat.find({});
+    query.sort('-created').limit(8).exec(function(err, docs){
+      console.log("Send old messages")
+      socket.emit('load old msgs', docs);
   })
+  })
+  
   socket.on('send-chat-message', (room, message) => {
     //socket.to(room).broadcast.emit('chat-message', { message: message, name: rooms[room].users[socket.id] })
     var newMsg = new Chat({ msg: message, username: rooms[room].users[socket.id] })
