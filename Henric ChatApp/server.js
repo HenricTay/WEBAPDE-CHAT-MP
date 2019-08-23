@@ -4,6 +4,7 @@ const server = require('http').Server(app)
 const io = require('socket.io')(server)
 const mongoose = require('mongoose')
 
+const CONNECTION_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/chat"
 app.set('views', './views')
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
@@ -11,19 +12,15 @@ app.use(express.urlencoded({ extended: true }))
 
 
 //const {CRooms} = require("./public/chatroom.js")
+const {Chat} = require("./model/messages.js")
 
 
-
-mongoose.connect("mongodb://localhost:27017/chat", 
+mongoose.connect(CONNECTION_URI, 
 {
   useNewUrlParser:true
 })
 
-var chatSchema = mongoose.Schema({
-  username: String,
-  msg: String,
-  created: {type: Date, default: Date.now}
-})
+const PORT = process.env.PORT||3000;
 
 var chatroomSchema = mongoose.Schema(
 {
@@ -39,7 +36,7 @@ var chatroomSchema = mongoose.Schema(
     //chatRoomName: String,
 })
 
-var Chat = mongoose.model('Message', chatSchema);
+
 var CRooms = mongoose.model('Chatroom', chatroomSchema);
 
 var rooms = { };
@@ -111,9 +108,10 @@ app.post('/room', (req, res) => {
     if(err)
       throw err;
   
-  })
-  console.log(JSON.stringify(rooms[req.body.room]) + " : " + newRoom)
-  */
+  }) */
+  console.log(JSON.stringify(rooms))
+  console.log(JSON.stringify(rooms[req.body.room]))
+  
 })
 
 
@@ -127,10 +125,16 @@ app.get('/:room', (req, res) => {
   })
 })
 
+/*
+      server.listen(PORT, "172.168.16.3", function(){
+        console.log('Server running...');
+      })
+*/
 
+server.listen(PORT,function(){
+  console.log('Server running...');
+})
 
-server.listen(3000)
-console.log('Server running...');
 
 io.on('connection', socket => {
 

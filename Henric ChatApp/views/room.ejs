@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script defer src="http://localhost:3000/socket.io/socket.io.js">
+      //"http://172.16.3.143:3000/socket.io/socket.io.js"
+      </script>
+    <script defer src= "https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel= "stylesheet" href ="/css/room_style.css" type = "text/css"/>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -31,11 +38,7 @@
         });
     
   </script>
-  <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
-  <script defer src= "https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script defer src="script.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel= "stylesheet" href ="/css/room_style.css" type = "text/css"/>
+  
 </head>
 <body>
 <div class = "wrapper">
@@ -81,7 +84,7 @@
           <div class="thin"></div>
           <form id="send-container">
                 <input type="text" id="message-input">
-                <input type="image" id="send-button" class = "plane" src ="/views/assets/paper plane.png">
+                <input type="image" id="send-button" class = "plane" src ="/images/paper plane.png">
           </form>
         </div>
       </div>
